@@ -1,4 +1,5 @@
 const { DataTypes } = require("sequelize");
+const Joi = require("joi");
 
 const BookModel = (connection) => {
   return connection.define(
@@ -11,7 +12,7 @@ const BookModel = (connection) => {
       },
       status: {
         type: DataTypes.BOOLEAN,
-        default: true,
+        defaultValue: true,
       },
     },
     {
@@ -20,4 +21,13 @@ const BookModel = (connection) => {
   );
 };
 
-module.exports = BookModel;
+// Validate
+const validateBook = (book) => {
+  const schema = Joi.object({
+    title: Joi.string().min(3).max(255).required(),
+  });
+
+  return schema.validate(book);
+};
+
+module.exports = { BookModel, validateBook };

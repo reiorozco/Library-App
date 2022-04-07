@@ -7,7 +7,7 @@ const RegistryModel = (connection) => {
       dateOut: {
         type: DataTypes.DATE,
         allowNull: false,
-        default: Date.now,
+        defaultValue: Date.now,
       },
       dateReturned: {
         type: DataTypes.DATE,
