@@ -11,6 +11,9 @@ const validate = require("../middleware/validate");
 const { validateBook } = require("../models/book");
 
 router.get("/", async (req, res) => {
+  // // Test Error Handler
+  // throw new Error("Could not get the books.");
+
   await getBooks();
 
   const books = await Book.findAll({
