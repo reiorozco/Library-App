@@ -10,13 +10,13 @@ const getBooks = async () => {
     const { data } = await axios.get(url);
     data.books.map((b) => books.push({ title: b.title }));
 
-    books.forEach((b) => {
-      Book.findOrCreate({
+    for (const b of books) {
+      await Book.findOrCreate({
         where: {
           title: b.title,
         },
       });
-    });
+    }
   } catch (error) {
     console.error("Error in getBooks: ", error.message);
   }

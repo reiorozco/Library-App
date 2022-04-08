@@ -1,6 +1,7 @@
 const morgan = require("morgan");
 const express = require("express");
 const helmet = require("helmet");
+const cors = require("cors");
 
 const bookRoutes = require("../routes/bookRoutes");
 const userRoutes = require("../routes/userRoutes");
@@ -12,6 +13,7 @@ const errorHandler = require("../middleware/error");
 module.exports = function (app) {
   app.use(express.json());
   app.use(helmet());
+  app.use(cors());
 
   if (app.get("env") === "development") {
     app.use(morgan("tiny"));
