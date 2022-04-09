@@ -1,7 +1,6 @@
 const router = require("express").Router();
 
 const {
-  getBooks,
   createBook,
   editTitleBook,
   deleteBook,
@@ -13,8 +12,6 @@ const { validateBook } = require("../models/book");
 router.get("/", async (req, res) => {
   // // Test Error Handler
   // throw new Error("Could not get the books.");
-
-  await getBooks();
 
   const books = await Book.findAll({
     order: [["id"]],
