@@ -4,7 +4,7 @@ export function getBooks() {
   return http.get("/api/books");
 }
 
-export function getMovie(bookId) {
+export function getBook(bookId) {
   return http.get(`/api/books/${bookId}`);
 }
 

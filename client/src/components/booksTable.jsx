@@ -9,9 +9,12 @@ function BooksTable({ books, onDelete }) {
       content: (book) => <Link to={`/books/${book.id}`}>{book.title}</Link>,
     },
     {
-      label: "Lend",
+      key: "Lend",
       content: (book) => (
-        <Link to={`/books/lend/${book.id}`}>
+        <Link
+          to={`/books/lend/${book.id}`}
+          className={book.status === false ? "btn disabled p-0" : null}
+        >
           <button className="btn btn-primary btn-sm">Lend</button>
         </Link>
       ),

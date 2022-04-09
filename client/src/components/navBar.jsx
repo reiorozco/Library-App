@@ -1,6 +1,5 @@
 import React from "react";
 import "bootstrap/js/dist/collapse";
-
 import { Link, NavLink, Outlet } from "react-router-dom";
 
 const NavBar = () => {
@@ -34,8 +33,8 @@ const NavBar = () => {
                 Books
               </NavLink>
 
-              <NavLink className="nav-link" to="/books/registries">
-                Registries
+              <NavLink className="nav-link" to="/books/lends">
+                Lends
               </NavLink>
             </div>
           </div>

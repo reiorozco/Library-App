@@ -11,8 +11,8 @@ function TableBody({ columns, data }) {
 
   return (
     <tbody>
-      {data.map((item) => (
-        <tr key={item.id}>
+      {data.map((item, index) => (
+        <tr key={item.id || index}>
           {columns.map((column) => (
             <td key={createKey(item, column)}>{renderCell(item, column)}</td>
           ))}

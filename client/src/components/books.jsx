@@ -73,7 +73,11 @@ function Books() {
 
       <p>{infoText}</p>
 
-      <SearchBox value={searchQuery} onChange={handleSearch} />
+      <SearchBox
+        value={searchQuery}
+        onChange={handleSearch}
+        placeholder="Search..."
+      />
 
       <BooksTable books={allBooks} onDelete={handleDelete} />
 
