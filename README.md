@@ -1,3 +1,4 @@
+
 ## Setup
 
 Follow all these steps as explained below. Do not miss any steps, or you won't be able to run this application.
@@ -49,6 +50,8 @@ Open up your browser and head over to:
 http://localhost:3000/api/books
 
 You should see the list of books.
+
+**Important**, the requests that the client is making are to port 3000, if you have the server running on another port, you also need to change the address where the client is making the requests in the following file /client/src/services/httpService.js
 
 ### Start the Client
 
