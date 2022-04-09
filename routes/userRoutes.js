@@ -17,6 +17,14 @@ router.get("/", async (req, res) => {
   return res.send(users);
 });
 
+router.get("/:id", async (req, res) => {
+  const lend = await User.findByPk(req.params.id);
+
+  if (!lend) return res.status(404).send("This lend wasn't found.'");
+
+  res.send(lend);
+});
+
 router.post("/", validate(validateUser), async (req, res) => {
   const { name, phone, email } = req.body;
 
@@ -25,11 +33,15 @@ router.post("/", validate(validateUser), async (req, res) => {
       email: email,
     },
   });
-  if (user) return res.status(400).send("User with this email already exist.");
+  if (user)
+    return res.send({ user, message: "User with this email already exist." });
 
   const newUser = await createUser(name, phone, email);
 
-  return res.send(newUser);
+  return res.send({
+    user: newUser,
+    message: "New user created successfully",
+  });
 });
 
 router.put("/:id", validate(validateUser), async (req, res) => {

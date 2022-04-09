@@ -32,11 +32,12 @@ const createBook = async (title) => {
   }
 };
 
-const editTitleBook = async (id, title) => {
+const editTitleBook = async (id, title, status) => {
   try {
     await Book.update(
       {
         title: title,
+        status: status,
       },
       {
         where: {

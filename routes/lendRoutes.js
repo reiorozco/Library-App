@@ -4,7 +4,10 @@ const { Book, User, Registry } = require("../models");
 const { createRegistry } = require("../controllers/lendController");
 
 router.get("/", async (req, res) => {
-  const registry = await Registry.findAll({ order: [["dateOut", "DESC"]] });
+  const registry = await Registry.findAll({
+    order: [["dateOut", "DESC"]],
+    include: ["Book", "User"],
+  });
 
   res.send(registry);
 });

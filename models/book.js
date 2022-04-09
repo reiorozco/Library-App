@@ -25,6 +25,7 @@ const BookModel = (connection) => {
 const validateBook = (book) => {
   const schema = Joi.object({
     title: Joi.string().min(3).max(255).required(),
+    status: Joi.boolean(),
   });
 
   return schema.validate(book);

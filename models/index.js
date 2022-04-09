@@ -10,6 +10,8 @@ const Registry = registry(dbConnection);
 
 User.belongsToMany(Book, { through: "Registry" });
 Book.belongsToMany(User, { through: "Registry" });
+Registry.belongsTo(Book);
+Registry.belongsTo(User);
 
 module.exports = {
   Book,

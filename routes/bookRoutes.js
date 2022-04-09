@@ -23,6 +23,14 @@ router.get("/", async (req, res) => {
   return res.send(books);
 });
 
+router.get("/:id", async (req, res) => {
+  const book = await Book.findByPk(req.params.id);
+
+  if (!book) return res.status(404).send("This book wasn't found.'");
+
+  res.send(book);
+});
+
 router.post("/", validate(validateBook), async (req, res) => {
   const { title } = req.body;
 
@@ -40,8 +48,8 @@ router.post("/", validate(validateBook), async (req, res) => {
 
 router.put("/:id", validate(validateBook), async (req, res) => {
   const { id } = req.params;
-  const { title } = req.body;
-  const editBook = await editTitleBook(id, title);
+  const { title, status } = req.body;
+  const editBook = await editTitleBook(id, title, status);
 
   return res.send(editBook);
 });
