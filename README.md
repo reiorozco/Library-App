@@ -56,7 +56,7 @@ From the ./client folder
 
     npm run dev
 
-This will launch the React client on port 3001 by default, because you have busied the port 3000 with the server.
+This will launch the React client on port 3001 by default, because you have busied the port 3000 with the server, you can set a different point in ./client/vite.config.js.
 
 Open up your browser and head over to:
 
