@@ -41,7 +41,7 @@ You need this, for sequelize connection, the file that create this connection is
 
 From the project folder, run:
 
-    node run dev
+    npm run dev
 
 This will launch the Node server on port 3000. If that port is busy, you can set a different point in ./index.js.
 
